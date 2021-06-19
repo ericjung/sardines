@@ -32,6 +32,8 @@
   kaboom.loadSound("scorePoint", "/sardines/audio/bleep.wav");
   kaboom.loadSound("die", "/sardines/audio/die.wav");
   kaboom.loadSound("godMode", "/sardines/audio/powerup1.wav");
+  kaboom.loadSound("gameOver", "/sardines/audio/game-over-pacman.mp3");
+  kaboom.loadSound("extraLife", "/sardines/audio/extra-life.mp3");
   
   kaboom.init({
       fullscreen: true,
@@ -41,7 +43,7 @@
 
   const game = new Game(kaboom);    
   scene("instructions", () => {
-    let x = (width() / 2)-200, textX = x+80;
+    let x = (width() / 2)-150, textX = x+80;
     let y = 10;
     const FONT_SIZE = 8, SMALL_FONT_SIZE = 6, VERTICAL_SPACING = 11;
     add([text("Sardines!", FONT_SIZE*2), pos(x, y)]);

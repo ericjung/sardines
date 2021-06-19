@@ -1,13 +1,31 @@
+const MAH_NA_MA_NA = "mahNaMahNa";
+const JEOPARDY_THEME = "jeopardyTheme";
+
+class Music {
+    constructor(props) {
+        this.volume = props.volume;
+        this.name = props.name;
+        props.kaboom.loadSound(this.name, props.path);
+    }
+}
 class BackgroundMusic {
 
   constructor(kaboom) {
     this.kaboom = kaboom;
-    kaboom.loadSound("mahNaMahNa", "/sardines/audio/mah-ma-mah-na.mp3");
-    this.name = "mahNaMahNa"; 
+    this.mahNaMahNa = new Music({kaboom: kaboom, volume: 0.5, name: MAH_NA_MA_NA, path: "/sardines/audio/mah-ma-mah-na.mp3"});
+    this.jeopardyTheme = new Music({kaboom: kaboom, volume: 1.5, name: JEOPARDY_THEME, path: "/sardines/audio/jeopardy-theme.mp3"});
+    this.active = this.mahNaMahNa;
     this.loop = true;
-    this.volume = 0.5;
     this.musicObject = null;
     this.enabled = true;
+  }
+
+  selectMahNaMahNa() {
+    this.active = this.mahNaMahNa;
+  }
+
+  selectJeopardyTheme() {
+    this.active = this.jeopardyTheme;
   }
   
   stop() {
@@ -39,6 +57,6 @@ class BackgroundMusic {
     
     this.stop();
     // .pause() and .resume() of music does not work very well  
-    this.musicObject = play(this.name, {loop: this.loop, volume: this.volume}); 
+    this.musicObject = this.kaboom.play(this.active.name, {loop: this.loop, volume: this.active.volume}); 
   }
 }

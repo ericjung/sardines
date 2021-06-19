@@ -3,10 +3,13 @@
       margin: 0;
   }
   </style>
+  <script>
+      
+  </script>
   <script src="/sardines/kaboom-0.2.0.js"></script>
-  <script src="background-music.js"></script>
-  <script src="friend-or-enemy.js"></script>
-  <script src="game.js"></script>
+  <script src="background-music.js?v=1624069972"></script>
+  <script src="friend-or-enemy.js?v=1624069972"></script>
+  <script src="game.js?v=1624069972"></script>
   <script type="module">
   
   // make kaboom functions global. TODO: remove this.
@@ -34,6 +37,7 @@
   kaboom.loadSound("godMode", "/sardines/audio/powerup1.wav");
   kaboom.loadSound("gameOver", "/sardines/audio/game-over-pacman.mp3");
   kaboom.loadSound("extraLife", "/sardines/audio/extra-life.mp3");
+  kaboom.loadSound("spokenSardinesHighPitched", "/sardines/audio/elliot-speaking-sardines-high-pitched.mp3");
   
   kaboom.init({
       fullscreen: true,
@@ -94,6 +98,8 @@
       game.resetScoreAndLives();           
       game.showLevelPage();
     });
+    
+    play("spokenSardinesHighPitched"); // Speak the name of the game!
   
   });
   

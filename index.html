@@ -1,3 +1,40 @@
+<!--
+  SARDINES!
+  By Eric H. Jung
+  a week (or a few days) in April 2021
+  
+  For my adorable son, Elliot, on his 3rd birthday 2021-04-23, who likes to eat sardines with me.
+
+  Source code at https://github.com/ericjung/sardines but I only added it there after initial release.
+  Originally developed for use with https://kaboomjs.com/ version 0.2 over a few days in April 2021.
+
+  There are still some bugs with pausing/unpausing the game, and a some other things I'd like to add:
+
+    * add birthday scene or special sprites Elliot's birthday
+    * mobile/touch support (seems to be in kaboomJS 0.8! it was not for 0.2)
+    * bonus round should be longer than 10 seconds and it needs more details
+    * don't spawn next right next to enemies!
+    * high scores (requires backend web service with database)
+    * treasure chest random appearances -- big points!
+    * snail. similar to the crab, he crawls on the sea floor. when touched, the player slows down for a period of time.
+    * change background music when crab is touched to indicate god mode (like when pac-man eats a power-up)
+    * other sea creature which, when touched, the player speeds up for a period of time.
+    * better sea floor; e.g. with sand, shells, etc. not just seweed
+    * multiplayer?
+    * Fewer sharks on the first level. Number of sharks should increase linearly as the levels increase or as score increases
+    * Longer bonus round but add a jaws-style shark who lunges from the bottom of the screen to try to eat you
+    * change seaweed to be thin strands, like kelp, with crab going behind and in front
+    * lew zealand from the muppets -- put into the game somehow
+
+    * bonus round art ideas:
+      * davy jones's locker
+      * love boat
+      * octopus's garden
+      * atlantis
+      * island with palm tree
+      * skeleton pirates
+-->
+<html><body>
 <style>
   body {
       margin: 0;
@@ -14,7 +51,7 @@
   <script src="resources.js?v=1624069972"></script>
   <script type="module">
   
-  // make kaboom functions global. TODO: remove this.
+  // make kaboom functions global. TODO: remove this. globals ugly.
   kaboom.global();
   kaboom.init({
       fullscreen: true,
@@ -26,3 +63,5 @@
   const game = new Game(kaboom);    
   new TitleScene(kaboom, game);
   </script>
+  </body>
+  </html>

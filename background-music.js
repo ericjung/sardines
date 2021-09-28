@@ -1,4 +1,5 @@
 const MAH_NA_MA_NA = "mahNaMahNa";
+const MAH_NA_MA_NA_NO_INTRO = "mahNaMahNaNoIntro";
 const JEOPARDY_THEME = "jeopardyTheme";
 
 class Music {
@@ -13,6 +14,7 @@ class BackgroundMusic {
   constructor(kaboom) {
     this.kaboom = kaboom;
     this.mahNaMahNa = new Music({kaboom: kaboom, volume: 0.5, name: MAH_NA_MA_NA, path: "/sardines/audio/mah-ma-mah-na.mp3"});
+    this.mahNaMahNaNoIntro = new Music({kaboom: kaboom, volume: 0.5, name: MAH_NA_MA_NA_NO_INTRO, path: "/sardines/audio/mah-ma-mah-na-no-intro.mp3"});
     this.jeopardyTheme = new Music({kaboom: kaboom, volume: 1.5, name: JEOPARDY_THEME, path: "/sardines/audio/jeopardy-theme.mp3"});
     this.active = this.mahNaMahNa;
     this.loop = true;
@@ -22,6 +24,10 @@ class BackgroundMusic {
 
   selectMahNaMahNa() {
     this.active = this.mahNaMahNa;
+  }
+
+  selectMahNaMahNaNoIntro() {
+    this.active = this.mahNaMahNaNoIntro;
   }
 
   selectJeopardyTheme() {

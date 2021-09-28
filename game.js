@@ -1,31 +1,3 @@
-/**
- * SARDINES!
- * By Eric H. Jung
- * a Week in April 2021
- * 
- * For my adorable son, Elliot on his 3rd birthday 2021-04-23, who likes to eat sardines with me.
- * There are still some bugs with pausing/unpausing the game, and a few other things I'd like to add:
- * 
- *   * high scores (requires backend web service with database)
- *   * treasure chest random appearances -- big points!
- *   * snail. similar to the crab, he crawls on the sea floor. when touched, the player slows down for a period of time.
- *   * change background music when crab is touched to indicate god mode (like when pac-man eats a power-up)
- *   * other sea creature which, when touched, the player speeds up for a period of time.
- *   * better sea floor; e.g. with sand, shells, etc. not just seweed
- *   * multiplayer?
- *   * Fewer sharks on the first level. Number of sharks should increase linearly as the levels increase.
- *   * Longer bonus round but add a jaws-style shark who lunges from the bottom of the screen to try to eat you
- *   * change seaweed to be thin strands, like kelp, with crab going behind and in front
- *   * lew zealand from the muppets -- put into the game somehow
- * 
- *   * bonus round art ideas:
- *      davy jones's locker
- *      love boat
- *      octopus's garden
- *      atlantis
- *      island with palm tree
- *      skeleton pirates
- */
 const ELLIOT_SCALE = 0.1;
 const MAIN_SCENE_NAME = "main";
 const LEVEL_SCENE_NAME = "level";
@@ -233,9 +205,13 @@ class Game {
             this.backgroundMusicDuringGamePlay.selectJeopardyTheme();
         }
         else {
-            this.backgroundMusicDuringGamePlay.selectMahNaMahNa();
+            if (this.levelNum == 1) { // First level is 1, not 0 
+                this.backgroundMusicDuringGamePlay.selectMahNaMahNa();
+            }
+            else {
+                this.backgroundMusicDuringGamePlay.selectMahNaMahNaNoIntro(); // skip the musical intro
+            }
         }
-
         this.backgroundMusicDuringGamePlay.play();
     }
 

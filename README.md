@@ -1,5 +1,7 @@
 # SARDINES!
 
+Play it <https://ericjung.github.io/sardines/> and turn up the volume. Does not work on **mobile** yet!
+
 By Eric H. Jung  
 Written during a week (or a few days) in April 2021  
 **For my adorable son, Elliot, on his 3rd birthday 2021-04-23, and who likes to eat sardines with me.**
@@ -18,6 +20,7 @@ Fortunately, Elliot can eat crustaceans 🦀 to smite his enemies and be victori
 Originally developed for use with https://kaboomjs.com/ version 0.2 over a few days in April 2021.  
 Unfortunately, mobile devices are not yet supported. There are still some bugs with pausing/unpausing the game, and some other things I'd like to add.   
 
+- There's a bug whereby Elliot's voice calling out "SARDINES!" no longer plays on the title screen. Instead it plays during the into music - not good.
 - Support mobile (port to the newest version of KaboomJS or port to https://phaser.io/)
 - add birthday scene or special sprites only on Elliot's birthday
 - mobile/touch support (seems to be in kaboomJS 0.8! it was not for 0.2)

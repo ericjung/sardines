@@ -13,7 +13,7 @@ const BONUS_LEVEL_NOT_IN_PROGRESS = 3;
 const YELLOW = kaboom.color(1, 1, 0, 1); // rgba 
 const WHITE = kaboom.color(1, 1, 1, 1 ); // rgba
 
-const NUM_LIVES = 0;
+const NUM_LIVES = 100;
 
 const NORMAL_FONT_SIZE = 8;
 const BIG_FONT_SIZE = 12;

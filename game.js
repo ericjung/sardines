@@ -4,7 +4,7 @@ const LEVEL_SCENE_NAME = "level";
 const BONUS_SCENE_NAME = "bonus";
 const BONUS_TITLE_SCENE_NAME = "bonusTitle";
 const BONUS_RESULTS_SCENE_NAME ="bonusResults";
-const BONUS_LEVEL_DURATION = 1000; // in msec
+const BONUS_LEVEL_DURATION = 12340000; // in msec
 
 const BONUS_LEVEL_IN_PROGRESS = 1;
 const BONUS_LEVEL_ENDED = 2;

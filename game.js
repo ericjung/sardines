@@ -4,7 +4,7 @@ const LEVEL_SCENE_NAME = "level";
 const BONUS_SCENE_NAME = "bonus";
 const BONUS_TITLE_SCENE_NAME = "bonusTitle";
 const BONUS_RESULTS_SCENE_NAME ="bonusResults";
-const BONUS_LEVEL_DURATION = 12340000; // in msec
+const BONUS_LEVEL_DURATION = 578000; // in msec
 
 const BONUS_LEVEL_IN_PROGRESS = 1;
 const BONUS_LEVEL_ENDED = 2;
@@ -13,7 +13,7 @@ const BONUS_LEVEL_NOT_IN_PROGRESS = 3;
 const YELLOW = kaboom.color(1, 1, 0, 1); // rgba 
 const WHITE = kaboom.color(1, 1, 1, 1 ); // rgba
 
-const NUM_LIVES_PER_GAME = 100;
+const NUM_LIVES_PER_GAME = 1980;
 
 const NORMAL_FONT_SIZE = 8;
 const BIG_FONT_SIZE = 12;

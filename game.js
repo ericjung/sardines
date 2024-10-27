@@ -22,8 +22,8 @@ const BIGGEST_FONT_SIZE = NORMAL_FONT_SIZE*2;
 const NORMAL_VERTICAL_SPACING = 12;
 const DOUBLE_VERTICAL_SPACING = NORMAL_VERTICAL_SPACING * 2;
 const QUADRUPLE_VERTICAL_SPACING = DOUBLE_VERTICAL_SPACING * 2;
-const ENEMY_SPEED_MIN = 50;
-const ENEMY_SPEED_MAX = 55;
+const ENEMY_SPEED_MIN = 30;
+const ENEMY_SPEED_MAX = 40;
 
 class Game {
     constructor(kaboom) {
@@ -53,7 +53,7 @@ class Game {
             spawnInterval: 3000, scale: this.kaboom.vec2(-1, 1), yDeltaRange: {min: 10, max: 40},
             infoSpacing: null, max: 10});
 
-        this.crabs = new FriendOrEnemy({name: "crab", points: 0, speed: 15, spawnInterval: 3000, scale: this.kaboom.vec2(1.0),
+        this.crabs = new FriendOrEnemy({name: "crab", points: 0, speed: 15, spawnInterval: 3000, scale: this.kaboom.vec2(3.0),
             yDeltaRange: {min: 0, max: 0, direction: 1} /* horizontal only */, infoSpacing: null,
             pos: this.kaboom.vec2(width()/2, height()-30), maxDelay: 1000 /* delay until next crab appears */,
             max: 5,

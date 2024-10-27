@@ -23,7 +23,7 @@ const NORMAL_VERTICAL_SPACING = 12;
 const DOUBLE_VERTICAL_SPACING = NORMAL_VERTICAL_SPACING * 2;
 const QUADRUPLE_VERTICAL_SPACING = DOUBLE_VERTICAL_SPACING * 2;
 const ENEMY_SPEED_MIN = 30;
-const ENEMY_SPEED_MAX = 40;
+const ENEMY_SPEED_MAX = 407;
 
 class Game {
     constructor(kaboom) {
@@ -60,7 +60,7 @@ class Game {
             // display crab if godMode not enabled (crab collision enabled godmode, so dont spawn crab during godmode)
             condition: elliotSprite => !elliotSprite.godMode.enabled});
 
-        this.krackens = new FriendOrEnemy({name: "kracken", points: 50, speed: this.kaboom.rand(ENEMY_SPEED_MIN, ENEMY_SPEED_MAX), spawnInterval: 1000,
+        this.krackens = new FriendOrEnemy({name: "kracken", points: 50, speed: ENEMY_SPEED_MAX, spawnInterval: 1000,
             scale: this.kaboom.vec2(1.0), yDeltaRange: {min: 0, max: 0}, /* horizontal only */ infoSpacing: {x: -10, y: 30},
             max: 10000,
             initalDelayBeforeRender: 5000});

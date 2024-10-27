@@ -42,7 +42,7 @@ class Game {
         this.timers = [];
         this.kaboom = kaboom;
         this.levelNum = 1; // levels are 1-indexed
-        this.sardinesNeededForNextLevel = 5;
+        this.sardinesNeededForNextLevel = 50;
         this.bonusLevelEvery = 3;
         this.gameOverOverlaySprites = [];
         this.bonusLevelStatus = BONUS_LEVEL_NOT_IN_PROGRESS;
@@ -62,7 +62,7 @@ class Game {
 
         this.krackens = new FriendOrEnemy({name: "kracken", points: 50, speed: this.kaboom.rand(ENEMY_SPEED_MIN, ENEMY_SPEED_MAX), spawnInterval: 1000,
             scale: this.kaboom.vec2(1.0), yDeltaRange: {min: 0, max: 0}, /* horizontal only */ infoSpacing: {x: -10, y: 30},
-            max: 13,
+            max: 10000,
             initalDelayBeforeRender: 5000});
  
         this.sardines = new FriendOrEnemy({name: "sardine", points: 100, speed: this.kaboom.rand(30, 80), spawnInterval: 500,

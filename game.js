@@ -4,7 +4,7 @@ const LEVEL_SCENE_NAME = "level";
 const BONUS_SCENE_NAME = "bonus";
 const BONUS_TITLE_SCENE_NAME = "bonusTitle";
 const BONUS_RESULTS_SCENE_NAME ="bonusResults";
-const BONUS_LEVEL_DURATION = 30000; // in msec
+const BONUS_LEVEL_DURATION = 1000; // in msec
 
 const BONUS_LEVEL_IN_PROGRESS = 1;
 const BONUS_LEVEL_ENDED = 2;
@@ -13,7 +13,7 @@ const BONUS_LEVEL_NOT_IN_PROGRESS = 3;
 const YELLOW = kaboom.color(1, 1, 0, 1); // rgba 
 const WHITE = kaboom.color(1, 1, 1, 1 ); // rgba
 
-const NUM_LIVES_PER_GAME = 4;
+const NUM_LIVES_PER_GAME = 100;
 
 const NORMAL_FONT_SIZE = 8;
 const BIG_FONT_SIZE = 12;
@@ -42,7 +42,7 @@ class Game {
         this.timers = [];
         this.kaboom = kaboom;
         this.levelNum = 1; // levels are 1-indexed
-        this.sardinesNeededForNextLevel = 20;
+        this.sardinesNeededForNextLevel = 5;
         this.bonusLevelEvery = 3;
         this.gameOverOverlaySprites = [];
         this.bonusLevelStatus = BONUS_LEVEL_NOT_IN_PROGRESS;
@@ -51,9 +51,9 @@ class Game {
         // TODO: should we increase number of sharks based on _levelNum_ ??? to make it hard by level
         this.sharks = new FriendOrEnemy({name: "shark", points: 10, speed: this.kaboom.rand(ENEMY_SPEED_MIN, ENEMY_SPEED_MAX),
             spawnInterval: 3000, scale: this.kaboom.vec2(-1, 1), yDeltaRange: {min: 10, max: 40},
-            infoSpacing: null, max: 10});
+            infoSpacing: null, max: 1});
 
-        this.crabs = new FriendOrEnemy({name: "crab", points: 0, speed: 15, spawnInterval: 3000, scale: this.kaboom.vec2(3.0),
+        this.crabs = new FriendOrEnemy({name: "crab", points: 0, speed: 15, spawnInterval: 3000, scale: this.kaboom.vec2(1.5),
             yDeltaRange: {min: 0, max: 0, direction: 1} /* horizontal only */, infoSpacing: null,
             pos: this.kaboom.vec2(width()/2, height()-30), maxDelay: 1000 /* delay until next crab appears */,
             max: 5,
@@ -61,21 +61,21 @@ class Game {
             condition: elliotSprite => !elliotSprite.godMode.enabled});
 
         this.krackens = new FriendOrEnemy({name: "kracken", points: 50, speed: this.kaboom.rand(ENEMY_SPEED_MIN, ENEMY_SPEED_MAX), spawnInterval: 1000,
-            scale: this.kaboom.vec2(0.50), yDeltaRange: {min: 0, max: 0}, /* horizontal only */ infoSpacing: {x: -10, y: 30},
-            max: 1,
+            scale: this.kaboom.vec2(1.0), yDeltaRange: {min: 0, max: 0}, /* horizontal only */ infoSpacing: {x: -10, y: 30},
+            max: 13,
             initalDelayBeforeRender: 5000});
  
         this.sardines = new FriendOrEnemy({name: "sardine", points: 100, speed: this.kaboom.rand(30, 80), spawnInterval: 500,
-            scale: this.kaboom.vec2(0.5), yDeltaRange: {min: 5, max: 30}, max: 6, numEaten: 0});
+            scale: this.kaboom.vec2(0.5), yDeltaRange: {min: 5, max: 30}, max: 39, numEaten: 0});
 
         this.pinkFishes = new FriendOrEnemy({name: "pinkFish", points: 1, speed: this.kaboom.rand(30, 80), spawnInterval: 1000,
-            scale: this.kaboom.vec2(1), yDeltaRange: {min: 10, max: 30}, infoSpacing: {x: 0, y: 20}, max: 3});
+            scale: this.kaboom.vec2(1), yDeltaRange: {min: 10, max: 30}, infoSpacing: {x: 0, y: 20}, max: 33});
 
         this.goldFishes = new FriendOrEnemy({name: "goldFish", points: 1, speed: this.kaboom.rand(30, 80), spawnInterval: 1000,
-            scale: this.kaboom.vec2(0.05), yDeltaRange: {min: 10, max: 50}, infoSpacing: {x: 0, y: 20}, max: 2});
+            scale: this.kaboom.vec2(0.05), yDeltaRange: {min: 10, max: 50}, infoSpacing: {x: 0, y: 20}, max: 89});
 
         this.seaHorses = new FriendOrEnemy({name: "seaHorse", points: 20, speed: this.kaboom.rand(30, 80), spawnInterval: 1000,
-            scale: this.kaboom.vec2(0.05), yDeltaRange: {min: 0, max: 0}, infoSpacing: {x: 10, y: 30}, max: 1});
+            scale: this.kaboom.vec2(0.05), yDeltaRange: {min: 0, max: 0}, infoSpacing: {x: 10, y: 30}, max: 45});
 
         this.scubaDiversType1 = new FriendOrEnemy({name: "scubaDiverType1", points: 20, speed: this.kaboom.rand(30, 70), spawnInterval: 1000,
             scale: this.kaboom.vec2(0.04), yDeltaRange: {min: 0, max: 0}, infoSpacing: {x: -10, y: 30}, max: 1});

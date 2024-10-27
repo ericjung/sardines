@@ -4,7 +4,7 @@ const LEVEL_SCENE_NAME = "level";
 const BONUS_SCENE_NAME = "bonus";
 const BONUS_TITLE_SCENE_NAME = "bonusTitle";
 const BONUS_RESULTS_SCENE_NAME ="bonusResults";
-const BONUS_LEVEL_DURATION = 10000; // in msec
+const BONUS_LEVEL_DURATION = 30000; // in msec
 
 const BONUS_LEVEL_IN_PROGRESS = 1;
 const BONUS_LEVEL_ENDED = 2;
@@ -13,7 +13,7 @@ const BONUS_LEVEL_NOT_IN_PROGRESS = 3;
 const YELLOW = kaboom.color(1, 1, 0, 1); // rgba 
 const WHITE = kaboom.color(1, 1, 1, 1 ); // rgba
 
-const NUM_LIVES_PER_GAME = 3;
+const NUM_LIVES_PER_GAME = 4;
 
 const NORMAL_FONT_SIZE = 8;
 const BIG_FONT_SIZE = 12;
@@ -22,6 +22,8 @@ const BIGGEST_FONT_SIZE = NORMAL_FONT_SIZE*2;
 const NORMAL_VERTICAL_SPACING = 12;
 const DOUBLE_VERTICAL_SPACING = NORMAL_VERTICAL_SPACING * 2;
 const QUADRUPLE_VERTICAL_SPACING = DOUBLE_VERTICAL_SPACING * 2;
+const ENEMY_SPEED_MIN = 50;
+const ENEMY_SPEED_MAX = 55;
 
 class Game {
     constructor(kaboom) {
@@ -47,18 +49,18 @@ class Game {
         this.bonusSardinesEaten = 0;
 
         // TODO: should we increase number of sharks based on _levelNum_ ??? to make it hard by level
-        this.sharks = new FriendOrEnemy({name: "shark", points: 10, speed: this.kaboom.rand(80, 120),
+        this.sharks = new FriendOrEnemy({name: "shark", points: 10, speed: this.kaboom.rand(ENEMY_SPEED_MIN, ENEMY_SPEED_MAX),
             spawnInterval: 3000, scale: this.kaboom.vec2(-1, 1), yDeltaRange: {min: 10, max: 40},
             infoSpacing: null, max: 10});
 
         this.crabs = new FriendOrEnemy({name: "crab", points: 0, speed: 15, spawnInterval: 3000, scale: this.kaboom.vec2(0.1),
             yDeltaRange: {min: 0, max: 0, direction: 1} /* horizontal only */, infoSpacing: null,
-            pos: this.kaboom.vec2(width()/2, height()-30), maxDelay: 5000 /* delay until next crab appears */,
-            max: 1,
+            pos: this.kaboom.vec2(width()/2, height()-30), maxDelay: 1000 /* delay until next crab appears */,
+            max: 5,
             // display crab if godMode not enabled (crab collision enabled godmode, so dont spawn crab during godmode)
             condition: elliotSprite => !elliotSprite.godMode.enabled});
 
-        this.krackens = new FriendOrEnemy({name: "kracken", points: 50, speed: this.kaboom.rand(30, 70), spawnInterval: 1000,
+        this.krackens = new FriendOrEnemy({name: "kracken", points: 50, speed: this.kaboom.rand(ENEMY_SPEED_MIN, ENEMY_SPEED_MAX), spawnInterval: 1000,
             scale: this.kaboom.vec2(0.50), yDeltaRange: {min: 0, max: 0}, /* horizontal only */ infoSpacing: {x: -10, y: 30},
             max: 1,
             initalDelayBeforeRender: 5000});

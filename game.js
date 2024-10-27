@@ -53,7 +53,7 @@ class Game {
             spawnInterval: 3000, scale: this.kaboom.vec2(-1, 1), yDeltaRange: {min: 10, max: 40},
             infoSpacing: null, max: 10});
 
-        this.crabs = new FriendOrEnemy({name: "crab", points: 0, speed: 15, spawnInterval: 3000, scale: this.kaboom.vec2(0.1),
+        this.crabs = new FriendOrEnemy({name: "crab", points: 0, speed: 15, spawnInterval: 3000, scale: this.kaboom.vec2(1.0),
             yDeltaRange: {min: 0, max: 0, direction: 1} /* horizontal only */, infoSpacing: null,
             pos: this.kaboom.vec2(width()/2, height()-30), maxDelay: 1000 /* delay until next crab appears */,
             max: 5,
